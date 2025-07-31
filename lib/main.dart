@@ -1,6 +1,7 @@
 import 'package:ecommerceapp/di/injector.dart' as di;
 import 'package:ecommerceapp/features/presentation/blocs/auth_bloc.dart';
 import 'package:ecommerceapp/features/presentation/pages/auth_page.dart';
+import 'package:ecommerceapp/features/presentation/pages/home_screen.dart';
 import 'package:ecommerceapp/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,18 +10,18 @@ import 'package:go_router/go_router.dart'; // Import GoRouter
 import 'firebase_options.dart';
 
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: AppBar(title: Text('Home')),
-      body: Center(
-        child: Text('Welcome to Home Screen!'),
-      ),
-    );
-  }
-}
+// class HomeScreen extends StatelessWidget {
+//   const HomeScreen({super.key});
+//   @override
+//   Widget build(BuildContext context) {
+//     return  Scaffold(
+//       appBar: AppBar(title: Text('Home')),
+//       body: Center(
+//         child: Text('Welcome to Home Screen!'),
+//       ),
+//     );
+//   }
+// }
 
 // Cấu hình GoRouter
 final _router = GoRouter(
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
         // Thêm các Bloc khác ở đây nếu có (ví dụ: ThemeBloc, UserBloc)
       ],
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         routerConfig: _router,
         title: 'Your Ecommerce App',
         theme: ThemeData(

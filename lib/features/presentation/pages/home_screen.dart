@@ -26,6 +26,7 @@ class HomeScreen extends StatelessWidget {
         }
       },
       child: Scaffold(
+   
         appBar: AppBar(
           title: const Text('Trang Chủ'),
           actions: [
