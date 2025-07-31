@@ -15,5 +15,5 @@ abstract class AuthRepository {
   Future<Either<Failure, void>> signOut();
 
   // Stream để lắng nghe sự thay đổi trạng thái xác thực của người dùng
-  Stream<User?> get authStateChanges;
+  Stream<User?> get authStateChanges; // Đây là nơi bạn có thể lắng nghe sự thay đổi trạng thái đăng nhập của người dùng
 }

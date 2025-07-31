@@ -5,8 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart'; // Import User từ firebase_
 import 'package:dartz/dartz.dart'; // Import Either để sử dụng trong các phương thức trả về
 // Tạm thời định nghĩa Failure cho mục đích minh họa 
 class AuthFailure extends Failure {
-  final String message;
-  const AuthFailure(this.message); // Thông điệp lỗi có thể được sử dụng để hiển thị cho người dùng hoặc ghi log
+  
+  const AuthFailure(super.message); // Thông điệp lỗi có thể được sử dụng để hiển thị cho người dùng hoặc ghi log
 
   @override
   List<Object?> get props => [message];
