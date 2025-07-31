@@ -2,7 +2,8 @@ import 'package:ecommerceapp/core/error/failures.dart';
 import 'package:ecommerceapp/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:ecommerceapp/features/auth/data/repositories/auth_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // Import User từ firebase_auth
-import 'package:dartz/dartz.dart'; // Import Either để sử dụng trong các phương thức trả về
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart'; // Import Either để sử dụng trong các phương thức trả về
 // Tạm thời định nghĩa Failure cho mục đích minh họa 
 class AuthFailure extends Failure {
   
@@ -11,7 +12,7 @@ class AuthFailure extends Failure {
   @override
   List<Object?> get props => [message];
 }
-
+@LazySingleton(as: AuthRepository) // Sử dụng LazySingleton để chỉ khởi tạo một instance duy nhất
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
   // final AuthLocalDataSource localDataSource;// Nếu có lưu trữ auth token cục bộ

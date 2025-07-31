@@ -2,8 +2,10 @@ import 'package:ecommerceapp/features/domain/usercase/sign_in_with_google_usecas
 import 'package:ecommerceapp/features/domain/usercase/sign_out_usecase.dart';
 import 'package:ecommerceapp/features/presentation/blocs/auth_event.dart';
 import 'package:ecommerceapp/features/presentation/blocs/auth_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart'; // Import User từ firebase_auth
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart'; // Import User từ firebase_auth
 
+@Injectable()
 // Định nghĩa AuthBloc
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final SignInWithGoogleUseCase _signInWithGoogleUseCase;

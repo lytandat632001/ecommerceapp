@@ -1,8 +1,8 @@
+import 'package:ecommerceapp/di/injector.dart' as di;
 import 'package:ecommerceapp/features/auth/auth_page.dart';
 import 'package:ecommerceapp/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // Import Firebase Auth
 import 'package:go_router/go_router.dart'; // Import GoRouter
 import 'firebase_options.dart';
 
@@ -43,6 +43,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await di.configureDependencies(); // Khởi tạo các phụ thuộc
   runApp(const MyApp());
 }
 
