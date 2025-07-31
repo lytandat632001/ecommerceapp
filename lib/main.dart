@@ -1,8 +1,10 @@
 import 'package:ecommerceapp/di/injector.dart' as di;
-import 'package:ecommerceapp/features/auth/auth_page.dart';
+import 'package:ecommerceapp/features/presentation/blocs/auth_bloc.dart';
+import 'package:ecommerceapp/features/presentation/pages/auth_page.dart';
 import 'package:ecommerceapp/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart'; // Import GoRouter
 import 'firebase_options.dart';
 
@@ -52,11 +54,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: _router, // Sử dụng GoRouter để quản lý định tuyến
-      title: 'Your Ecommerce App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiBlocProvider( // Sử dụng MultiBlocProvider nếu bạn có nhiều BLoC cấp cao
+      providers: [
+        BlocProvider(
+          create: (context) => di.getIt<AuthBloc>(), // Lấy AuthBloc từ GetIt
+        ),
+        // Thêm các Bloc khác ở đây nếu có (ví dụ: ThemeBloc, UserBloc)
+      ],
+      child: MaterialApp.router(
+        routerConfig: _router,
+        title: 'Your Ecommerce App',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
       ),
     );
   }
